@@ -1,0 +1,47 @@
+.navbar{
+    margin: 25px 2px;
+}
+
+.pictures img{
+    width: 150px;
+    height: 150px;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 2px 29px;
+}
+.navbar ul li a {
+    font-size: 12px;
+    font-weight: 900;
+}
+
+
+.pictures img{
+    width: 80px;
+    height: 80px;
+}
+
+.pictures .pic{
+    margin: 2px 42px;
+}
+
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px 2px;
+}
+
+
+
+#item-2{
+    margin: 32px 2px;
+}
+
+
+#pledge{
+    text-align: center;
+    width: 66%;
+    margin: 22px 132px;
+}

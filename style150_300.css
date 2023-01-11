@@ -1,0 +1,144 @@
+.head{
+    text-align: center;
+}
+.navbar{
+    margin: 25px 0px;
+
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 2px 5px;
+}
+.navbar ul li a {
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.content1st {
+    display: flex;
+    flex-direction: row;
+    margin: 95px 5px;
+    /* height: 900px; */
+    /* font-size: 12vh; */
+    
+}
+
+.content1st .btn1{
+    font-size: 15px;
+}
+
+.content1st .left {
+    width: 590px;
+    padding: 12px 4px;
+    font-size: 8px;
+}
+.content1st .right {
+    font-size: 4px;
+    width: 600px;
+    padding: 12px 4px;
+}
+.content1st .right img{
+   width: 500px;
+   height: 100px;
+}
+
+.btn1 {
+    width: 72px;
+    padding: 2px 12px;
+    /* font-size: 8px; */
+}
+.btn1 a{
+    /* width: 72px; */
+    font-size: 12px;
+}
+.content1st .right .btn2{
+    width: 52px;
+    padding: 2px 2px;
+    padding-top: 2px;
+}
+.content1st .right .btn2 a{
+    /* width: 52px; */
+    font-size: 12px;
+}
+.content1st .right img {
+    padding-left: 0px;
+    width: 90px;
+    height: 70;
+}
+.content1st .right .paraS {
+    font-size: 10px;
+}
+.content1st .left .para {
+    font-size: 10px;
+}
+
+
+.pictures{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  justify-content: center;
+}
+.pictures img{
+    width: 150px;
+    height: 150px;
+}
+
+.pictures .pic{
+    margin: 12px 20px;
+}
+
+
+
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px 2px ;
+    /* width: 70px; */
+}
+
+.box .itemPara{
+    font-size: 12px;
+}
+
+.box .btn1 {
+    margin: 19px 0px;
+    background-color:
+
+        rgba(57, 51, 51, 0.066);
+}
+
+
+
+
+
+.item{
+    width: 0px;
+}
+
+
+#item-2{
+    margin: 32px 2px;
+}
+
+
+#pledge{
+    text-align: center;
+    width: 105%;
+    margin: 12px 22px;
+    
+}
+
+.team img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 12px 52px;
+  
+}
+
+.team .h1{
+    font-size: 12px;
+}
