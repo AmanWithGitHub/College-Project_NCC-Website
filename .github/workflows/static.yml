@@ -15,26 +15,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # ✅ 1. Validate HTML
+  # ✅ 1. HTML Validation Job (No manual Docker install)
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Docker (safe for runner)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-
-      - name: Validate HTML using html5validator (Docker)
+      - name: Validate HTML using html5validator (via Docker)
         run: |
           docker run --rm -v ${{ github.workspace }}:/workspace ghcr.io/svenkreiss/html5validator \
             --root /workspace --ignore-re=".*\.(css|js|png|jpg|svg)$"
 
-  # ✅ 2. Deploy to GitHub Pages
+  # ✅ 2. Deploy Job
   deploy:
-    needs: test  # ⏳ Only deploy if test passes
+    needs: test
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -47,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # This deploys your whole repo
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
