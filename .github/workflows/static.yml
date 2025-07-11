@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Test and Deploy Static Site to GitHub Pages
 
 on:
   push:
@@ -15,22 +15,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # ✅ Test Job: Validate HTML
+  # ✅ 1. Validate HTML
   test:
     runs-on: ubuntu-latest
-    name: Validate HTML
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Validate HTML files
-        uses: Cyb3r-Jak3/html5validator-action@v0.3.0
-        with:
-          root: .
+      - name: Install Docker (safe for runner)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
 
-  # ✅ Deploy Job
+      - name: Validate HTML using html5validator (Docker)
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/workspace ghcr.io/svenkreiss/html5validator \
+            --root /workspace --ignore-re=".*\.(css|js|png|jpg|svg)$"
+
+  # ✅ 2. Deploy to GitHub Pages
   deploy:
-    needs: test  # Only deploy if test passes
+    needs: test  # ⏳ Only deploy if test passes
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -43,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '.'  # This deploys your whole repo
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
